@@ -137,7 +137,7 @@ export const generateExcel = async () => {
 
     const noteRow = lastRow + 2;
     const preparedByLabelRow = noteRow + 3;
-    const preparedByNameRow = preparedByLabelRow + 2;
+    const preparedByNameRow = preparedByLabelRow + 3;
     const instructorRow = preparedByNameRow + 1;
     const notedLabelRow = instructorRow + 2; // 
     const notedNameRow = notedLabelRow + 3;
