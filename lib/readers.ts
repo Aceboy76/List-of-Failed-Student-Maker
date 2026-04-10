@@ -135,6 +135,8 @@ export const readGrade = (gradeCol: GradeCol, data: unknown[]) => {
       };
     });
 
+  console.log(grades)
+
   useGradeStore.getState().setGradeDetails({
     failedGrades: grades,
   });

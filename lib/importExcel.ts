@@ -61,7 +61,7 @@ export const getGrades = async (
   period: String | null,
   workbook: XLSX.WorkBook,
 ) => {
-  var sheet = workbook.Sheets[workbook.SheetNames[11]];
+  var sheet = workbook.Sheets["Summary"];
   const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
   // console.log(data);
@@ -158,7 +158,7 @@ export const getAttendance = async (
   switch (period) {
     case "PRELIM":
       {
-        const prelimSheet = workbook.Sheets[workbook.SheetNames[3]];
+        const prelimSheet = workbook.Sheets["PRELIMS"];
         const data = XLSX.utils.sheet_to_json<any[]>(prelimSheet, { header: 1 });
 
         readAttendance(data);
@@ -167,7 +167,7 @@ export const getAttendance = async (
       break;
     case "MIDTERM":
       {
-        const midtermSheet = workbook.Sheets[workbook.SheetNames[4]];
+        const midtermSheet = workbook.Sheets["MIDTERM"];
         const data = XLSX.utils.sheet_to_json<any[]>(midtermSheet, { header: 1 });
 
         readAttendance(data);
@@ -176,7 +176,7 @@ export const getAttendance = async (
       break;
     case "PREFINAL":
       {
-        const prefinalSheet = workbook.Sheets[workbook.SheetNames[5]];
+        const prefinalSheet = workbook.Sheets["PRE-FINALS"];
         const data = XLSX.utils.sheet_to_json<any[]>(prefinalSheet, { header: 1 });
         readAttendance(data);
       }
@@ -184,7 +184,7 @@ export const getAttendance = async (
       break;
     case "FINAL":
       {
-        const finalSheet = workbook.Sheets[workbook.SheetNames[6]];
+        const finalSheet = workbook.Sheets["FINALS"];
         const data = XLSX.utils.sheet_to_json<any[]>(finalSheet, { header: 1 });
         readAttendance(data);
       }
