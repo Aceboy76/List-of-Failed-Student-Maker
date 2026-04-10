@@ -25,14 +25,6 @@ export default function LandingPage() {
               MAKE FOR TERTIARY
             </Button>
           </Link>
-          <Link href={"/TertiaryPage"}>
-            <Button
-              className="text-2xl px-10 py-7 rounded-4xl bg-green-600"
-              variant={"default"}
-            >
-              MAKE FOR SHS
-            </Button>
-          </Link>
         </div>
       </div>
     </>
