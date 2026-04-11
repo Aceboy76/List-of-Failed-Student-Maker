@@ -119,6 +119,7 @@ export const generateExcel = async () => {
     const startRow = 10;
 
     // Table Data
+    // Table Data
     failedGrades.forEach((student, index) => {
         const row = startRow + index;
 
@@ -133,7 +134,24 @@ export const generateExcel = async () => {
         worksheet[`J${row}`] = { v: withEmpty(student.intervention), t: "s", s: TextValueStyle };
     });
 
-    const lastRow = startRow + failedGrades.length - 1;
+    // Fill empty rows so there are always at least 5 data rows
+    const minRows = 5;
+    const emptyRowsNeeded = Math.max(0, minRows - failedGrades.length);
+    for (let i = 0; i < emptyRowsNeeded; i++) {
+        const row = startRow + failedGrades.length + i;
+
+        worksheet[`B${row}`] = { v: "", t: "s", s: IndexValueStyle };
+        worksheet[`C${row}`] = { v: "", t: "s", s: NameValueStyle };
+        worksheet[`D${row}`] = { v: "", t: "s", s: NumValueStyle };
+        worksheet[`E${row}`] = { v: "", t: "s", s: NumValueStyle };
+        worksheet[`F${row}`] = { v: "", t: "s", s: NumValueStyle };
+        worksheet[`G${row}`] = { v: "", t: "s", s: NumValueStyle };
+        worksheet[`H${row}`] = { v: "", t: "s", s: NumValueStyle };
+        worksheet[`I${row}`] = { v: "", t: "s", s: TextValueStyle };
+        worksheet[`J${row}`] = { v: "", t: "s", s: TextValueStyle };
+    }
+
+    const lastRow = startRow + Math.max(failedGrades.length, minRows) - 1;
 
     const noteRow = lastRow + 2;
     const preparedByLabelRow = noteRow + 3;
