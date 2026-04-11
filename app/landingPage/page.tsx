@@ -22,7 +22,7 @@ export default function LandingPage() {
               className="text-2xl px-10 py-7 rounded-4xl bg-green-400 hover:bg-green-500"
               variant={"outline"}
             >
-              MAKE FOR TERTIARY
+              CREATE NOW
             </Button>
           </Link>
         </div>
