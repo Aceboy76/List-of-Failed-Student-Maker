@@ -26,6 +26,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { PlusIcon } from "@phosphor-icons/react";
 
 interface FormProps {
   name: string | undefined;
@@ -106,8 +107,12 @@ export default function ListForm({
   return (
     <div className="flex fixed top-0 left-0 w-full h-full z-10 bg-black/50 items-center justify-center">
       <Card className="w-full sm:max-w-md rounded-2xl">
-        <CardHeader>
-          <CardTitle>{name}</CardTitle>
+        <CardHeader className="pb-2">
+          <div className="flex items-center gap-3">
+            <div>
+              <CardTitle className="text-base font-medium">{name}</CardTitle>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <form
@@ -119,8 +124,9 @@ export default function ListForm({
           >
             {/* Editable Fields */}
             <div className="flex flex-col gap-3">
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-col gap-2 mb-4">
+              <div className="flex flex-col gap-4">
+                {/* Old input */}
+                {/* <div className="flex flex-col gap-2 mb-4">
                   {labs !== undefined && (
                     <div className="flex items-center gap-2">
                       <label className="text-sm font-bold w-32">
@@ -208,10 +214,93 @@ export default function ListForm({
                       />
                     </div>
                   )}
+                </div> */}
+                {/* new readonly fields */}
+                <div className="flex flex-col gap-3">
+                  {/* Scores */}
+                  <div>
+                    <p className="text-sm uppercase tracking-wide font-bold mb-2">
+                      Scores
+                    </p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {exam !== undefined && (
+                        <div className="bg-mauve-200 rounded-lg px-3 py-2">
+                          <p className="text-[15px] text-muted-foreground mb-1">
+                            Exam
+                          </p>
+                          <p className="text-xl font-medium tabular-nums">
+                            {editedExam}
+                          </p>
+                        </div>
+                      )}
+                      {labs !== undefined && (
+                        <div className="bg-mauve-200 rounded-lg px-3 py-2">
+                          <p className="text-[15px] text-muted-foreground mb-1">
+                            Missed labs
+                          </p>
+                          <p className="text-xl font-medium tabular-nums">
+                            {editedLabs}
+                          </p>
+                        </div>
+                      )}
+                      {quiz !== undefined && (
+                        <div className="bg-mauve-200 rounded-lg px-3 py-2">
+                          <p className="text-[15px] text-muted-foreground mb-1">
+                            Missed quiz
+                          </p>
+                          <p className="text-xl font-medium tabular-nums">
+                            {editedQuiz}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Attendance */}
+                  {(absent?.absences !== undefined ||
+                    absent?.late !== undefined) && (
+                    <div>
+                      <p className="text-sm  tracking-wide font-bold mb-2">
+                        ATTENDANCE
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {absent?.absences !== undefined && (
+                          <div className="bg-mauve-200 rounded-lg px-3 py-2">
+                            <p className="text-[15px] text-muted-foreground mb-1">
+                              Absences
+                            </p>
+                            <p className="text-xl font-medium tabular-nums">
+                              {editedAbsences}
+                            </p>
+                            {editedAbsenceDates && (
+                              <p className="text-[15px] text-muted-foreground mt-1">
+                                {editedAbsenceDates}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                        {absent?.late !== undefined && (
+                          <div className="bg-mauve-200 rounded-lg px-3 py-2">
+                            <p className="text-[15px] text-muted-foreground mb-1">
+                              Late
+                            </p>
+                            <p className="text-xl font-medium tabular-nums">
+                              {editedLate}
+                            </p>
+                            {editedLateDates && (
+                              <p className="text-[15px] text-muted-foreground mt-1">
+                                {editedLateDates}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="flexflex-col items-center gap-2">
-                  <label className="text-sm font-bold w-32">
-                    Other Concerns
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-bold w-32 tracking-wide">
+                    OTHER CONCERNS
                   </label>
                   <InputGroupTextarea
                     value={editOther}
@@ -224,8 +313,11 @@ export default function ListForm({
               {/* Intervention */}
               <div>
                 <div className="flex justify-between">
-                  <FieldLabel htmlFor="form-rhf-demo-description">
-                    Intervention
+                  <FieldLabel
+                    htmlFor="form-rhf-demo-description"
+                    className="text-sm font-bold tracking-wide"
+                  >
+                    INTERVENTION
                   </FieldLabel>
                   <div className="flex items-center gap-2">
                     <DropdownMenu>
@@ -234,7 +326,8 @@ export default function ListForm({
                           variant={"outline"}
                           className="bg-yellow-200 hover:bg-yellow-300 border-2 border-chart-4 rounded-sm mb-1 h-fit py-1"
                         >
-                          Pre Select
+                          <PlusIcon />
+                          Quick Add
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent className="w-96">

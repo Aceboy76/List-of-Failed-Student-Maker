@@ -52,7 +52,7 @@ export const getFileDetails = async (file: File, period: string | null) => {
 
     getAttendance(period, workbook);
   } catch (error) {
-      return "The selected Excel file is invalid, or it may still be open. Please close the file and try again."
+    return "The selected Excel file is invalid, or it may still be open. Please close the file and try again."
   }
 
 };
@@ -91,7 +91,9 @@ export const getGrades = async (
         grade: 11,
         equivalent: 12,
       };
+
       return readGrade(gradeCol, data);
+
       break;
     case "FINAL":
       {

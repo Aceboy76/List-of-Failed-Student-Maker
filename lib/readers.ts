@@ -117,13 +117,6 @@ export const readGrade = (gradeCol: GradeCol, data: unknown[]) => {
         row[gradeCol.grade] !== "" &&
         row[gradeCol.equivalent] === 5.0,
     ).map((row) => {
-      const values = [row[7], row[9], row[11], row[13]];
-      const nums = values.map(Number);
-
-      const avg = nums.every(Number.isFinite)
-        ? nums.reduce((a, b) => a + b, 0) / nums.length
-        : undefined;
-
       return {
         name: row[6],
         grade: row[gradeCol.grade],
@@ -131,11 +124,11 @@ export const readGrade = (gradeCol: GradeCol, data: unknown[]) => {
         midterm: row[9],
         prefinal: row[11],
         final: row[13],
-        overall: avg,
+        overall: row[16],
       };
     });
 
-  console.log(grades)
+  // console.log(grades)
 
   useGradeStore.getState().setGradeDetails({
     failedGrades: grades,

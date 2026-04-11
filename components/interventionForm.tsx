@@ -12,6 +12,7 @@ import { Field, FieldLabel } from "./ui/field";
 import { InputGroup, InputGroupTextarea } from "./ui/input-group";
 import React from "react";
 import { FailedStudent, useGradeStore } from "../store/failed-student-store";
+import { PlusIcon } from "@phosphor-icons/react";
 
 interface FormProps {
   FailedStudent?: FailedStudent[];
@@ -67,7 +68,8 @@ export default function InterventionForm({
                         variant={"outline"}
                         className="bg-yellow-200 hover:bg-yellow-300 border-2 border-chart-4 rounded-sm mb-1 h-fit py-1"
                       >
-                        Pre Select
+                        <PlusIcon />
+                        Quick Add
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-96">

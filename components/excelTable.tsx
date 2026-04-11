@@ -68,9 +68,9 @@ export default function ExcelTable() {
             <div className="flex-[2] px-4 py-2 border-r-2 border-chart-2">
               Student Name
             </div>
-            <div className="flex-[3] px-4 py-2 border-r-2 border-chart-2 text-center">
+            <div className="flex-[4] px-4 py-2 border-r-2 border-chart-2 text-center">
               Grade
-              <div className="grid grid-cols-5 gap-2 text-sm">
+              <div className="grid grid-cols-5 gap-6 text-sm">
                 <div>Prelim</div>
                 <div>Midterm</div>
                 <div>Prefinal</div>
@@ -112,8 +112,8 @@ export default function ExcelTable() {
               <div className="flex-2 px-4 py-2 border-r-2 border-chart-2">
                 {student.name}
               </div>
-              <div className="flex-[3] px-4 py-2 border-r-2 border-chart-2 text-center">
-                <div className="grid grid-cols-5 w-full text-sm">
+              <div className="flex-[4] px-4 py-2 border-r-2 border-chart-2 text-center ">
+                <div className="grid grid-cols-5 gap-6 w-full text-md ">
                   <div className="text-center">{student.prelim ?? "-"}</div>
                   <div className="text-center">{student.midterm ?? "-"}</div>
                   <div className="text-center">{student.prefinal ?? "-"}</div>

@@ -15,6 +15,7 @@ import ExcelTable from "@/components/excelTable";
 import { Button } from "@/components/ui/button";
 import { generateExcel } from "@/lib/generateExcel";
 import { useFileStore } from "@/store/file-store";
+import { toast } from "sonner";
 
 export default function MainTertiaryPage() {
   const Period = ["PRELIM", "MIDTERM", "PREFINAL", "FINAL"];
@@ -26,7 +27,14 @@ export default function MainTertiaryPage() {
   const handleClick = async () => {
     if (!file) return;
 
-    await getFileDetails(file, period);
+    const error = await getFileDetails(file, period);
+
+    if (error) {
+      toast.error(error);
+      return;
+    } else {
+      toast.success("File loaded successfully!");
+    }
 
     useFileStore.getState().setFileDetails({
       Noted: notedBy?.toString().toUpperCase(),
