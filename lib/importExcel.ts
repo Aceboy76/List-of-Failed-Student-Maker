@@ -29,7 +29,6 @@ export const getFileDetails = async (file: File, period: string | null) => {
     const workbook = XLSX.read(data);
 
     var SettingSheet = workbook.Sheets["Settings"];
-    console.log(workbook)
 
     const subjectName = SettingSheet["E8"].v;
     const section = SettingSheet["P5"].v;
@@ -64,7 +63,6 @@ export const getGrades = async (
   var sheet = workbook.Sheets["Summary"];
   const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-  // console.log(data);
   switch (period) {
     case "PRELIM":
       {
