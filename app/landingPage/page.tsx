@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <>
-      <div className="h-screen w-full bg-amber-100 p-[75px] flex flex-col gap-15 ">
+      <div className="h-screen w-full bg-gradient-to-br from-white to-amber-300 p-[75px] flex flex-col gap-15 ">
         <div>
           <Image src="/sti_logo.png" alt="sti logo" width={100} height={100} className="w-auto h-auto"/>
         </div>
@@ -19,7 +19,7 @@ export default function LandingPage() {
         <div className="flex gap-10">
           <Link href={"/TertiaryPage"}>
             <Button
-              className="text-2xl px-10 py-7 rounded-4xl bg-green-400 hover:bg-green-500"
+              className="text-2xl px-10 py-7 rounded-4xl bg-blue-300 hover:bg-blue-400 font-bold tracking-widest"
               variant={"outline"}
             >
               CREATE NOW

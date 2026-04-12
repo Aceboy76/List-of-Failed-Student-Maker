@@ -66,7 +66,7 @@ export default function InterventionForm({
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant={"outline"}
-                        className="bg-yellow-200 hover:bg-yellow-300 border-2 border-chart-4 rounded-sm mb-1 h-fit py-1"
+                        className="bg-amber-200 hover:bg-amber-300 border-2 border-chart-4 rounded-sm mb-1 h-fit py-1"
                       >
                         <PlusIcon />
                         Quick Add

@@ -3,8 +3,8 @@ import MainPage from "./page";
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="h-15 w-full bg-amber-300 px-10 flex items-center">
+    <div className="min-h-screen flex flex-col ">
+      <div className="h-15 w-full bg-amber-200 px-10 flex items-center">
         <div className="flex gap-20">
           <Image
             src="/sti_logo.png"

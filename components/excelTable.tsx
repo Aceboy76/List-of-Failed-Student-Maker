@@ -86,7 +86,7 @@ export default function ExcelTable() {
 
               {subjectName ? (
                 <Button
-                  className="bg-yellow-200 border-2 border-chart-2 hover:bg-yellow-300 rounded-sm"
+                  className="bg-amber-200 border-2 border-chart-2 hover:bg-amber-300 rounded-sm"
                   variant={"outline"}
                   onClick={() => showInventionForm()}
                   disabled={false}
@@ -191,7 +191,7 @@ export default function ExcelTable() {
               <div className="w-16 px-2 py-2 flex items-center justify-center">
                 <Button
                   variant={"outline"}
-                  className="bg-yellow-200 border-2 border-chart-2 hover:bg-yellow-300 rounded-sm"
+                  className="bg-amber-200 border-2 border-chart-2 hover:bg-amber-300 rounded-sm"
                   onClick={() => showListForm(student)}
                 >
                   <PenIcon />

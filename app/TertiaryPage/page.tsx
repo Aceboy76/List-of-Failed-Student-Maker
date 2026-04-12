@@ -44,7 +44,7 @@ export default function MainTertiaryPage() {
 
   return (
     <>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 ">
         <div className="flex justify-between">
           <div className="w-full flex gap-5">
             <Field className="w-1/2">
