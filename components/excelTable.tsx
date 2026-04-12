@@ -81,7 +81,7 @@ export default function ExcelTable() {
             <div className="flex-[3] px-4 py-2 border-r-2 border-chart-2 text-center">
               Reason for Failure
             </div>
-            <div className="flex-[3] flex items-center px-4 py-2 border-r-2 border-chart-2 text-center">
+            <div className="flex-[3] flex px-4 py-2 border-r-2 border-chart-2 text-center">
               <span className="flex-1 text-center">Intervention</span>
 
               {subjectName ? (
