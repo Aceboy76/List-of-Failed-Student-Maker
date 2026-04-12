@@ -74,7 +74,11 @@ export default function MainTertiaryPage() {
                   <ComboboxEmpty>No items found.</ComboboxEmpty>
                   <ComboboxList>
                     {(item) => (
-                      <ComboboxItem key={item} value={item}>
+                      <ComboboxItem
+                        key={item}
+                        value={item}
+                        className=" data-highlighted:bg-blue-300"
+                      >
                         {item}
                       </ComboboxItem>
                     )}
