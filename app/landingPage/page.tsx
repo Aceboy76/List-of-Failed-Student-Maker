@@ -10,7 +10,7 @@ export default function LandingPage() {
           <Image src="/sti_logo.png" alt="sti logo" width={100} height={100} className="w-auto h-auto"/>
         </div>
         <div className="">
-          <div className="text-6xl font-bold">LIST OF FAIL MAKER</div>
+          <div className="text-6xl font-bold">LIST OF FAILED STUDENTS MAKER</div>
           <div className="text-3xl text-black/50 ">
             Create an excel file of your list of failed students easily
           </div>

@@ -14,7 +14,7 @@ export default function Layout() {
             className="w-auto h-auto"
           />
 
-          <div className="flex text-2xl items-center ">LIST OF FAILED STUDENTS</div>
+          <div className="flex text-2xl items-center ">LIST OF FAILED STUDENTS MAKER</div>
         </div>
       </div>
 
