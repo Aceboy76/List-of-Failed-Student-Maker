@@ -186,7 +186,7 @@ export const generateExcel = async () => {
     };
 
     worksheet[`C${notedLabelRow}`] = {
-        v: "Noted:",
+        v: "Noted by:",
         t: "s",
         s: { font: { name: "Calibri", sz: 16 } }
     };

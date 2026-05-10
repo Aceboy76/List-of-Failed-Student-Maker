@@ -65,7 +65,7 @@ export default function ExcelTable() {
             <div className="w-10 px-4 py-2 border-r-2 border-chart-2 text-start">
               #
             </div>
-            <div className="flex-[2] px-4 py-2 border-r-2 border-chart-2">
+            <div className="flex-[2] px-4 py-2 border-r-2 border-chart-2 text-center">
               Student Name
             </div>
             <div className="flex-[4] px-4 py-2 border-r-2 border-chart-2 text-center">
