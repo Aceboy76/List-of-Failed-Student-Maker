@@ -207,8 +207,32 @@ export const generateExcel = async () => {
         t: "s",
         s: { font: { name: "Calibri", sz: 16 } }
     };
+    const printRange = {
+        s: { r: 0, c: 1 }, // Start: Row 1 (index 0), Column B (index 1)
+        e: { r: programHeadRow - 1, c: 9 } // End: Calculated Row, Column J (index 9)
+    };
 
-    // ✅ Dynamic sheet range (IMPORTANT FIX)
+    worksheet["!printArea"] = XLSXStyle.utils.encode_range(printRange);
+
+    // Optional: Fit to one page wide
+    worksheet["!pageSetup"] = {
+        orientation: 'landscape',
+        fitToWidth: 1,
+        fitToHeight: 0, // 0 allows it to span multiple pages vertically if needed
+        paperSize: 9    // A4
+    };
+    worksheet["!pageSetup"] = {
+        paperSize: 5,           // 5 = Legal (8.5" x 14")
+        orientation: 'portrait',
+        fitToWidth: 1,          // Scale width to fit 1 page
+        fitToHeight: 1          // Scale height to fit 1 page
+    };
+
+    // 3. IMPORTANT: Excel requires "fitToPage" to be true in sheet views for the scaling to work
+    worksheet["!printOptions"] = {
+        fitToPage: true
+    };
+
     const totalRows = programHeadRow + 2;
     worksheet["!ref"] = `A1:K${totalRows}`;
 
