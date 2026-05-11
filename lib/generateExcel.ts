@@ -221,6 +221,9 @@ export const generateExcel = async () => {
         fitToWidth: 1,
         fitToPage: true,
     };
+    worksheet["!sheetViews"] = [
+        { fitToPage: true }
+    ]
 
     const totalRows = programHeadRow + 2;
     worksheet["!ref"] = `A1:K${totalRows}`;
@@ -234,7 +237,7 @@ export const generateExcel = async () => {
         Ref: `Sheet1!${worksheet["!printArea"]}`,
         Sheet: 0
     });
-    
+
     XLSXStyle.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
     const fileName = `LASTNAME_List-of-Fail-Students-${fileDetails.classCode}-${fileDetails.section}.xlsx`;
