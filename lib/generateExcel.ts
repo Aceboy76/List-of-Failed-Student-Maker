@@ -219,13 +219,22 @@ export const generateExcel = async () => {
         paperSize: 5,
         orientation: 'landscape',
         fitToWidth: 1,
-        fitToPage: true,     
+        fitToPage: true,
     };
 
     const totalRows = programHeadRow + 2;
     worksheet["!ref"] = `A1:K${totalRows}`;
 
     const workbook = XLSXStyle.utils.book_new();
+
+    workbook.Workbook = workbook.Workbook || { Names: [] };
+    workbook.Workbook.Names = workbook.Workbook.Names || [];
+    workbook.Workbook.Names.push({
+        Name: "_xlnm.Print_Area",
+        Ref: `Sheet1!${worksheet["!printArea"]}`,
+        Sheet: 0
+    });
+    
     XLSXStyle.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
     const fileName = `LASTNAME_List-of-Fail-Students-${fileDetails.classCode}-${fileDetails.section}.xlsx`;
