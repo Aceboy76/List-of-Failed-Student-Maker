@@ -216,14 +216,8 @@ export const generateExcel = async () => {
 
     // Optional: Fit to one page wide
     worksheet["!pageSetup"] = {
-        orientation: 'landscape',
-        fitToWidth: 1,
-        fitToHeight: 0, // 0 allows it to span multiple pages vertically if needed
-        paperSize: 9    // A4
-    };
-    worksheet["!pageSetup"] = {
         paperSize: 5,           // 5 = Legal (8.5" x 14")
-        orientation: 'portrait',
+        orientation: 'landscape',
         fitToWidth: 1,          // Scale width to fit 1 page
         fitToHeight: 1          // Scale height to fit 1 page
     };
