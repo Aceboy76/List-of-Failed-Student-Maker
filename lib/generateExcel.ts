@@ -216,15 +216,10 @@ export const generateExcel = async () => {
 
     // Optional: Fit to one page wide
     worksheet["!pageSetup"] = {
-        paperSize: 5,           // 5 = Legal (8.5" x 14")
+        paperSize: 5,
         orientation: 'landscape',
-        fitToWidth: 1,          // Scale width to fit 1 page
-        fitToHeight: 1          // Scale height to fit 1 page
-    };
-
-    // 3. IMPORTANT: Excel requires "fitToPage" to be true in sheet views for the scaling to work
-    worksheet["!printOptions"] = {
-        fitToPage: true
+        fitToWidth: 1,
+        fitToPage: true,     
     };
 
     const totalRows = programHeadRow + 2;
