@@ -207,37 +207,12 @@ export const generateExcel = async () => {
         t: "s",
         s: { font: { name: "Calibri", sz: 16 } }
     };
-    const printRange = {
-        s: { r: 0, c: 1 }, // Start: Row 1 (index 0), Column B (index 1)
-        e: { r: programHeadRow - 1, c: 9 } // End: Calculated Row, Column J (index 9)
-    };
 
-    worksheet["!printArea"] = XLSXStyle.utils.encode_range(printRange);
-
-    // Optional: Fit to one page wide
-    worksheet["!pageSetup"] = {
-        paperSize: 5,
-        orientation: 'landscape',
-        fitToWidth: 1,
-        fitToPage: true,
-    };
-    worksheet["!sheetViews"] = [
-        { fitToPage: true }
-    ]
-
+   
     const totalRows = programHeadRow + 2;
     worksheet["!ref"] = `A1:K${totalRows}`;
 
     const workbook = XLSXStyle.utils.book_new();
-
-    workbook.Workbook = workbook.Workbook || { Names: [] };
-    workbook.Workbook.Names = workbook.Workbook.Names || [];
-    workbook.Workbook.Names.push({
-        Name: "_xlnm.Print_Area",
-        Ref: `Sheet1!${worksheet["!printArea"]}`,
-        Sheet: 0
-    });
-
     XLSXStyle.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
     const fileName = `LASTNAME_List-of-Fail-Students-${fileDetails.classCode}-${fileDetails.section}.xlsx`;
