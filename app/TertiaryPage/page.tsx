@@ -99,7 +99,7 @@ export default function MainTertiaryPage() {
               <FieldDescription>Add your name here.</FieldDescription>
             </Field>
             <Field className="w-70">
-              <FieldLabel>Approved by</FieldLabel>
+              <FieldLabel>Noted by</FieldLabel>
               <Input
                 type="text"
                 placeholder="Enter Name"
